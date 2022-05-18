@@ -23,8 +23,8 @@ class Login extends React.Component {
 
   handleSave = () => {
     this.setState({ loading: true }, async () => {
-      const { input } = this.state;
-      await createUser({ name: input });
+      const { inputName } = this.state;
+      await createUser({ name: inputName });
       const { history } = this.props;
       history.push('/search');
     });
@@ -48,7 +48,7 @@ class Login extends React.Component {
         >
           Entrar
         </button>
-        {loading && <p>Loading...</p>}
+        {loading && <p>Carregando...</p>}
       </div>
     );
   }
