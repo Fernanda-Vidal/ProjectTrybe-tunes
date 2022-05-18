@@ -4,7 +4,7 @@ import { createUser } from '../services/userAPI';
 
 class Login extends React.Component {
   state = {
-    input: '',
+    inputName: '',
     isDisable: true,
     loading: false,
   }
@@ -12,7 +12,7 @@ class Login extends React.Component {
   handleChangeInput = ({ target }) => {
     const { value } = target;
     const min = 3;
-    this.setState({ input: value }, () => {
+    this.setState({ inputName: value }, () => {
       if (value.length >= min) {
         this.setState({ isDisable: false });
       } else {
@@ -31,14 +31,13 @@ class Login extends React.Component {
   }
 
   render() {
-    const { isDisable, inputUser, loading } = this.state;
+    const { isDisable, loading, inputName } = this.state;
     return (
       <div data-testid="page-login">
         <input
           type="text"
           data-testid="login-name-input"
-          name="login-name-input"
-          value={ inputUser }
+          name={ inputName }
           onChange={ this.handleChangeInput }
         />
         <button
