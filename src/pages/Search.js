@@ -59,7 +59,6 @@ class Search extends React.Component {
             value="Pesquisar"
             disabled={ isDisable }
             onClick={ async () => { await this.handleClick(inputArtist); } }
-            // onClick={ this.handleClick }
           >
             Pesquisar
           </button>
@@ -76,6 +75,7 @@ class Search extends React.Component {
             (
               <Link
                 key={ index }
+                id={ collectionId }
                 to={ `/album/${collectionId}` }
                 data-testid={ `link-to-album-${collectionId}` }
               >
