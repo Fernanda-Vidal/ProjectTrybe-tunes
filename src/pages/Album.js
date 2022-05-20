@@ -33,12 +33,10 @@ class Album extends React.Component {
         { artistName, collectionName, artworkUrl100, trackName, previewUrl }
       )).filter(({ previewUrl }) => previewUrl),
     });
-    console.log(this.state.musicList);
   }
 
   render() {
     const { loading, musicList, music } = this.state;
-    // console.log(this.props);
     return (
       <div data-testid="page-album">
         <Header />
