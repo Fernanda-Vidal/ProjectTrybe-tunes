@@ -22,21 +22,22 @@ class Album extends React.Component {
         params: { id },
       },
     } = this.props;
-    // console.log(id);
+    console.log(id);
     this.setState({ loading: true });
     const arrayMusics = await getMusics(id);
     this.setState({
       music: arrayMusics,
       loading: false,
       musicList: arrayMusics.map(({
-        artistName, collectionName, artworkUrl100, trackName, previewUrl }) => (
-        { artistName, collectionName, artworkUrl100, trackName, previewUrl }
+        artistName, collectionName, artworkUrl100, trackName, previewUrl, trackId }) => (
+        { artistName, collectionName, artworkUrl100, trackName, previewUrl, trackId }
       )).filter(({ previewUrl }) => previewUrl),
     });
   }
 
   render() {
     const { loading, musicList, music } = this.state;
+    // console.log(this.props);
     return (
       <div data-testid="page-album">
         <Header />
@@ -49,11 +50,12 @@ class Album extends React.Component {
             <p data-testid="album-name">{music[0].collectionName }</p>
           </div>
         ) }
-        { musicList.map(({ trackName, previewUrl }, index) => (
+        { musicList.map(({ trackName, previewUrl, trackId }, index) => (
           <MusicCard
             key={ index }
             musica={ trackName }
             player={ previewUrl }
+            id={ trackId }
           />
         ))}
 
