@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, removeSong } from '../services/favoriteSongsAPI';
 import getMusics from '../services/musicsAPI';
 import Loading from './Loading';
 
@@ -10,6 +10,11 @@ class MusicCard extends React.Component {
       isChecked: false,
     }
 
+    componentDidMount() {
+      const { isFavorite } = this.props;
+      this.setState({ isChecked: isFavorite });
+    }
+
     handleChecked = async ({ target }) => {
       const { checked } = target;
       const { id } = this.props;
@@ -17,8 +22,11 @@ class MusicCard extends React.Component {
         loading: true,
         isChecked: checked,
       });
+      const callGetMusics = await getMusics(id);
       if (checked) {
-        await addSong(await getMusics(id));
+        await addSong(callGetMusics[0]);
+      } else {
+        await removeSong(callGetMusics[0]);
       }
       this.setState({ loading: false });
     }
@@ -54,6 +62,7 @@ MusicCard.propTypes = {
   musica: PropTypes.string.isRequired,
   player: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  isFavorite: PropTypes.bool.isRequired,
 };
 
 export default MusicCard;
