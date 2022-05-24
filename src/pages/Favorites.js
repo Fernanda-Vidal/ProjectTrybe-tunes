@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import React from 'react';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
@@ -24,7 +24,6 @@ class Favorites extends React.Component {
     });
   }
 
-
   render() {
     const { isLoading, favorites } = this.state;
     // console.log(favorites);
@@ -47,8 +46,8 @@ class Favorites extends React.Component {
   }
 }
 
-Favorites.propTypes = {
-  checked: PropTypes.bool.isRequired,
-}
+// Favorites.propTypes = {
+//   checked: PropTypes.bool.isRequired,
+// }
 
 export default Favorites;
