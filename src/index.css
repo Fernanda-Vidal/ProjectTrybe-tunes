@@ -1,19 +1,338 @@
 body {
-  margin: 10;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 10;
+    color: #00C9A7;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: black;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+  .config {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+  #login {
+    align-items: center;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    justify-content: center;
+    background-image: linear-gradient(to left top, #675af0, #a450db, #c84bc4, #df4ead, #ec5899, #f86388, #fe7379, #ff846d, #ff9b5d, #ffb450, #f9d04b, #e4eb55);
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgb(255,255,255,0.5);
+    height: 300px;
+    margin: 10px;
+    width: 400px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.p-login {
+  font-family: 'Dancing Script', cursive;
+  font-size: 50px;
 }
 
-.loading {
+#inputLogin {
+  height: 25px;
+  width: 200px;
+}
+
+input {
+  height: 25px;
+  width: 200px;
+}
+
+button {
+    background-color: black;
+    border: none;
+    border-radius: 10%;
+    box-shadow: 2px 2px 2px 2px rgba(000, 000,000, 0.3);
+    color: #df4ead;
+    font-weight: 600;
+    margin: 15px;
+}
+
+#searchButton {
+  background-image: linear-gradient(to left top, #675af0, #a450db, #c84bc4, #df4ead, #ec5899, #f86388, #fe7379, #ff846d, #ff9b5d, #ffb450, #f9d04b, #e4eb55);
+  border-radius: 5px;
+  color: black;
+  height: 30px;
+  width: 150px;
+}
+
+.headerLogin {
+    align-items: flex-start;
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    width: 300px;
+}
+
+.header {
   align-items: center;
   display: flex;
+  margin: 15px;
+  max-width: 100%;
+}
+
+#nav {
+  color: #00C9A7;
+  display: flex;
+  font-weight: 700;
+  justify-content: space-around;
+  width: 90%;
+}
+
+#imgLogin {
+  width: 70px;
+  height: 70px;
+}
+
+#phone {
+  width: 100%;
+  height: 100%;
+}
+
+#loading {
+  color: #00C9A7;
+  font-size: 20px;
+}
+
+.link {
+  color: #00C9A7;
+  text-decoration: none;
+  margin: 5%;
+}
+
+#formSearch {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+.albumName {
+  align-items: center;
+  background-color: rgb(255,255,255,0.1);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 2%;
+  width: 500px;
+}
+
+.imgAlbum {
+  display: flex;
+  width: 30%;
+}
+
+.infoAlbum {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.musica {
+  align-items: center;
+  background-color: rgb(255,255,255,0.1);
+  display: flex;
+  margin: 1%;
+  padding: 1%;
+  height: 80px;
+}
+
+.musicName {
+  display: flex;
+  width: 20%;
+}
+
+audio {
+  margin: 1%;
+  width: 40%;
+}
+
+.fav {
+  align-items: center;
+  display: flex;
+  width: 10%;
+}
+
+.imgAlbum {
+  width: 100%;
+}
+
+.infoAlbum {
+  height: 50px;
+  margin: 5%;
+  text-align: center;
+}
+
+.p {
+  color: #ec5899;
+  font-size: 40px;
+  font-family: 'Dancing Script', cursive;
+}
+
+@media only screen and ( max-width: 300px ) {
+  .header {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+    max-width: 100%;
+  }
+
+  #nav {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #formSearch {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    justify-content: space-around;
+}
+
+.albumName {
+  align-items: center;
+  background-color: rgb(255,255,255,0.1);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  height: 200px;
+  width: 200px;
+}
+
+.imgAlbum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.infoAlbum {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  width: 100%;
+}
+
+input {
+  width: 200px;
+}
+
+.musica {
+  align-items: center;
+  background-color: rgb(255,255,255,0.1);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+  margin: 3.5%;
+  padding: 1%;
+  width: 90%;
+}
+
+.musicName {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+audio {
+  width: 100%;
+}
+
+.fav {
+  width: 100%;
+}
+}
+
+@media only screen and ( max-width: 600px ) {
+  #login {
+    width: 300px;
+  }
+
+  #searchButton {
+    height: 30px;
+    width: 150px;
+  }
+
+  input {
+    height: 25px;
+    width: 200px;
+  }
+
+  .musica {
+    align-items: center;
+    background-color: rgb(255,255,255,0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100px;
+    margin: 3.5%;
+    padding: 1%;
+    width: 90%;
+  }
+
+  .musicName {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  audio {
+    width: 100%;
+  }
+  
+  .fav {
+    width: 100%;
+  }
+} 
+
+@media only screen and ( min-width: 650px ) {
+  .albumName {
+    background-color: rgb(255,255,255,0.1);
+    border-radius: 10px;
+    display: flex;
+    height: 100px;
+    width: 1000px;
+  }
+
+  #searchButton {
+    height: 30px;
+    width: 150px;
+  }
+
+  input {
+    height: 20px;
+    width: 450px;
+  }
 }

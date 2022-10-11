@@ -44,13 +44,16 @@ class Album extends React.Component {
       return (
         <div data-testid="page-album">
           <Header />
-          <p>Album</p>
+          {/* <p>Album</p> */}
           { loading && <Loading /> }
           {music.length > 0 && (
             <div>
-              <img src={ music[0].artworkUrl100 } alt="capa" />
-              <p data-testid="artist-name">{music[0].artistName}</p>
-              <p data-testid="album-name">{music[0].collectionName }</p>
+              <img className="imgAlbum" src={ music[0].artworkUrl100 } alt="capa" />
+              <div className="infoAlbum">
+                <p data-testid="artist-name">{music[0].artistName}</p>
+                <br />
+                <p data-testid="album-name">{music[0].collectionName }</p>
+              </div>
             </div>
           ) }
           { musicList.map(({ trackName, previewUrl, trackId }, index) => (

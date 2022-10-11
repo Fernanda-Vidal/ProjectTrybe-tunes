@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
 import getMusics from '../services/musicsAPI';
 import Loading from './Loading';
+import '../index.css';
 
 class MusicCard extends React.Component {
     state = {
@@ -36,22 +37,25 @@ class MusicCard extends React.Component {
       const { isChecked, loading } = this.state;
       return (
         loading ? <Loading /> : (
-
-          <div>
-            <p>{ musica }</p>
+          <div className="musica">
+            <div className="musicName">
+              <p>{ musica }</p>
+            </div>
             <audio data-testid="audio-component" src={ player } controls>
               <track kind="captions" />
             </audio>
-            <label htmlFor="favorita">
-              Favorita
-              <input
-                type="checkbox"
-                name="favorita"
-                data-testid={ `checkbox-music-${id}` }
-                checked={ isChecked }
-                onChange={ this.handleChecked }
-              />
-            </label>
+            <div className="fav">
+              <label htmlFor="favorita">
+                Favorita
+                <input
+                  type="checkbox"
+                  name="favorita"
+                  data-testid={ `checkbox-music-${id}` }
+                  checked={ isChecked }
+                  onChange={ this.handleChecked }
+                />
+              </label>
+            </div>
           </div>
         )
       );

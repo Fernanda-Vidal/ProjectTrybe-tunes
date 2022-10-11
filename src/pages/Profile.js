@@ -25,7 +25,7 @@ class Profile extends React.Component {
     return (
       <div data-testid="page-profile">
         <Header />
-        <p>Profile</p>
+        <p className="p">Profile</p>
         <img src={ userInfos.image } alt="foto" data-testid="profile-image" />
         <p>{ userInfos.name }</p>
         <p>{ userInfos.email }</p>

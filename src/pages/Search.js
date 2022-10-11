@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import Loading from '../components/Loading';
+import AlbumCard from '../components/AlbumCard';
 
 class Search extends React.Component {
   state = {
@@ -43,7 +44,7 @@ class Search extends React.Component {
     return (
       <div data-testid="page-search">
         <Header />
-        <form>
+        <form id="formSearch">
           <label htmlFor="search-artist-Input">
             <input
               type="text"
@@ -51,9 +52,10 @@ class Search extends React.Component {
               value={ inputArtist }
               onChange={ this.handleChange }
             />
-
           </label>
+          { loading && <Loading /> }
           <button
+            id="searchButton"
             type="button"
             data-testid="search-artist-button"
             value="Pesquisar"
@@ -62,29 +64,37 @@ class Search extends React.Component {
           >
             Pesquisar
           </button>
-          { loading && <Loading /> }
         </form>
-        { albumList.length > 0 ? (
-          <h3>
-            Resultado de álbuns de:
-            {' '}
-            { artist }
-          </h3>) : <p>Nenhum álbum foi encontrado</p> }
-        { albumList
-          .map(({ artworkUrl100, collectionName, artistName, collectionId }, index) => (
-            (
-              <Link
-                key={ index }
-                id={ collectionId }
-                to={ `/album/${collectionId}` }
-                data-testid={ `link-to-album-${collectionId}` }
-              >
-                <img src={ artworkUrl100 } alt={ collectionName } />
-                <p>{ collectionName }</p>
-                <p>{ artistName }</p>
-              </Link>
-            )
-          ))}
+        <div className="list">
+          { albumList.length > 0 ? (
+            <h3>
+              Resultado de álbuns de:
+              {' '}
+              { artist }
+            </h3>) : <p>Nenhum álbum foi encontrado</p> }
+          { albumList
+            .map(({ artworkUrl100, collectionName, artistName, collectionId }, index) => (
+              (
+                <AlbumCard
+                  key={ index }
+                  id={ collectionId }
+                  imgUrl={ artworkUrl100 }
+                  album={ collectionName }
+                  artist={ artistName }
+                />
+                // <Link
+                //   // key={ index }
+                //   // id={ collectionId }
+                //   to={ `/album/${collectionId}` }
+                //   // data-testid={ `link-to-album-${collectionId}` }
+                // >
+                //   <img src={ artworkUrl100 } alt={ collectionName } />
+                //   <p>{ collectionName }</p>
+                //   <p>{ artistName }</p>
+                // </Link>
+              )
+            ))}
+        </div>
       </div>
     );
   }

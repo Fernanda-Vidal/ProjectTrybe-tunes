@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
+import '../index.css';
+import phone from '../images/phone.png';
 
 class Login extends React.Component {
   state = {
@@ -34,22 +36,31 @@ class Login extends React.Component {
   render() {
     const { isDisable, loading, inputName } = this.state;
     return (
-      <div data-testid="page-login">
-        <input
-          type="text"
-          data-testid="login-name-input"
-          name={ inputName }
-          onChange={ this.handleChangeInput }
-        />
-        <button
-          type="button"
-          data-testid="login-submit-button"
-          disabled={ isDisable }
-          onClick={ this.handleSave }
-        >
-          Entrar
-        </button>
-        {loading && <Loading />}
+      <div className="config">
+        <div data-testid="page-login" id="login">
+          <header className="headerLogin">
+            <p className="p-login">TrybeTunes</p>
+            <div id="imgLogin">
+              <img src={ phone } alt="fone de ouvido" id="phone" />
+            </div>
+          </header>
+          <input
+            id="inputLogin"
+            type="text"
+            data-testid="login-name-input"
+            name={ inputName }
+            onChange={ this.handleChangeInput }
+          />
+          <button
+            type="button"
+            data-testid="login-submit-button"
+            disabled={ isDisable }
+            onClick={ this.handleSave }
+          >
+            Entrar
+          </button>
+          {loading && <Loading />}
+        </div>
       </div>
     );
   }
