@@ -1,4 +1,4 @@
-# Boas vindas ao repositório do projeto TrybeTunes!
+# Projeto TrybeTunes!
 
 Projeto realizado no curso de Desenvolvimento Web da Trybe. Toda a estrutura do projeto foi fornecida pela Trybe.
 
